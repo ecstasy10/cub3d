@@ -93,20 +93,3 @@ int     main(void)
     mlx_loop(param->mlx_ptr);
     return (0);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
