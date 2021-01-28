@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   mapconfigValidator.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/23 19:01:26 by dbalboa-          #+#    #+#             */
-/*   Updated: 2021/01/28 19:25:56 by dbalboa-         ###   ########.fr       */
+/*   Created: 2021/01/28 19:33:07 by dbalboa-          #+#    #+#             */
+/*   Updated: 2021/01/28 19:33:10 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int		main(int ac, char **av)
+int     lineValidator(char *fileLine)
 {
-    if (ac >= 2 && ft_fileExtensionCheck(av[1], "cub"))
+
+    return 0;
+}
+
+
+int     configValidator(char *mapPath)
+{
+    char    *fileLine;
+    int     fileDescriptor;
+
+    fileLine = NULL;
+    fileDescriptor = open(mapPath, O_RDONLY);
+    if (fileDescriptor)
     {
-         if (ac == 3 && ft_fileFlagCheck(av[2], "--save"))
-         {
-             return 22;
-         }
-        configValidator(av[1]);
-    } else
-        write(2, "Error : Invalid arguments\n", 26);
-    return (0);
+        while (get_next_line(fileDescriptor, &fileLine))
+        {
+            lineValidator(fileLine);
+            free(fileLine);
+        }
+    }
+    return 0;
 }
