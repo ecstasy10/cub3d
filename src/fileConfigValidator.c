@@ -12,14 +12,38 @@
 
 #include "../cub3d.h"
 
-int     lineValidator(char *fileLine)
+int     configLine(t_main *main, char *line)
 {
+    char **lineSplitted;
 
+    line = ft_str_tab_remove(line);
+    line = ft_strtrim(line, " ");
+    lineSplitted = ft_split(line, ' ');
+    if (!ft_strcmp(lineSplitted[0], "R"))
+        setResolution(main, lineSplitted);
+    else if (!ft_strcmp(lineSplitted[0], "NO")
+        || !ft_strcmp(lineSplitted[0], "SO")
+        || !ft_strcmp(lineSplitted[0], "WE")
+        || !ft_strcmp(lineSplitted[0], "EA")
+        || !ft_strcmp(lineSplitted[0], "S"))
+        printf("%s \n", "texturas");
+    else if (!ft_strcmp(lineSplitted[0], "C")
+        || !ft_strcmp(lineSplitted[0], "F"))
+        printf("%s \n", "colores");
+    return 0;
+}
+
+int     lineValidator(t_main *main, char *line)
+{
+    if (ft_isalpha(line[0]))
+        configLine(main, line);
+    else
+        printf("%s", "Esto es el mapa\n");
     return 0;
 }
 
 
-int     configValidator(char *mapPath)
+int     fileConfigValidator(t_main *main, char *mapPath)
 {
     char    *fileLine;
     int     fileDescriptor;
@@ -30,7 +54,7 @@ int     configValidator(char *mapPath)
     {
         while (get_next_line(fileDescriptor, &fileLine))
         {
-            lineValidator(fileLine);
+            lineValidator(main, fileLine);
             free(fileLine);
         }
     }

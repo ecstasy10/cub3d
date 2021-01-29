@@ -13,12 +13,12 @@
 #include "../cub3d.h"
 
 
-int		ft_fileFlagCheck(char *flagArg, char *flag)
+int		fileFlagCheck(char *flagArg, char *flag)
 {
     return !ft_strcmp(flagArg, flag);
 }
 
-int		ft_fileExtensionCheck(char *fileArg, char *ext)
+int		fileExtensionCheck(char *fileArg, char *ext)
 {
     int	i;
 

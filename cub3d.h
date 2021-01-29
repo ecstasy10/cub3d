@@ -13,8 +13,8 @@
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "../mlx/mlx.h"
-# include "../libft/libft.h"
+# include "mlx/mlx.h"
+# include "libft/libft.h"
 # include <stdio.h>
 
 typedef struct	s_mlx
@@ -24,7 +24,9 @@ typedef struct	s_mlx
 
 typedef struct	s_win
 {
-
+    int				width;
+    int				height;
+    void			*ptr;
 }               t_win;
 
 typedef struct s_img
@@ -45,7 +47,11 @@ typedef struct	s_main
     t_err			err;
 }				t_main;
 
-int				ft_fileExtensionCheck(char *arg, char *ext);
-int             ft_flagCheck(char *flagArg, char *flag);
+int				fileExtensionCheck(char *arg, char *ext);
+int             fileFlagCheck(char *flagArg, char *flag);
+
+int             fileConfigValidator(t_main *main, char *mapPath);
+
+int             setResolution(t_main *main, char **resolutionLine);
 
 #endif

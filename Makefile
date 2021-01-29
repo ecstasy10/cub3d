@@ -14,7 +14,8 @@ NAME = cub3D
 
 SRC =	cub3d.c \
 		fileValidation.c \
-		mapConfigValidator.c
+		fileConfigValidator.c \
+		fileConfig.c
 SRCDIR = src/
 OBJ = $(SRC:.c=.o)
 LIBFTDIR = libft/
