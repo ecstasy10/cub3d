@@ -6,3 +6,5 @@
 \.idea/.gitignore
 \.idea/misc.xml
 \cmake-build-debug/CMakeFiles/clion-log.txt
+\src/*.o
+\libft/*.o
