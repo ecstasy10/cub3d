@@ -14,6 +14,8 @@
 
 int     saveMapLine(t_main *main, char *line)
 {
+    if (line[0] == '\0')
+        return 0;
     main->map.table[main->map.rows] = ft_strdup(line);
     main->map.rows++;
     if (ft_strlen(line) > main->map.columns || main->map.rows == 0)
@@ -67,7 +69,7 @@ int     fileConfigValidator(t_main *main, char *mapPath)
             free(fileLine);
         }
     }
-    validateMap(main)
+    validateMap(main);
     printf("\n%s\n", "Todo ha ido bien");
     printf("\nrows: %d\n", main->map.rows);
     printf("\ncols: %d\n", main->map.columns);
