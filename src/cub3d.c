@@ -17,12 +17,17 @@ int		main(int ac, char **av)
     t_main main;
 
     ft_bzero(&main, sizeof(t_main));
+    main.tex.path = createStack(5);
     if (ac >= 2 && fileExtensionCheck(av[1], "cub"))
     {
          if (ac == 3 && fileFlagCheck(av[2], "--save"))
              return 22;
+         else if (ac == 3)
+             error(E_FLAG);
         fileConfigValidator(&main, av[1]);
-    } else
-        write(2, "Error : Invalid arguments\n", 26);
+    } else if (!fileExtensionCheck(av[1], "cub"))
+        error(E_FILE);
+    else
+        error(E_ARGS);
     return (0);
 }
