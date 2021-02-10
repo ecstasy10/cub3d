@@ -26,7 +26,7 @@ int		main(int ac, char **av)
              error(E_FLAG);
         fileConfigValidator(&main, av[1]);
     } else if (!fileExtensionCheck(av[1], "cub"))
-        error(E_FILE);
+        error(E_MAP_FILE);
     else
         error(E_ARGS);
     return (0);

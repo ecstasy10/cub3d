@@ -12,22 +12,55 @@
 
 #include "../cub3d.h"
 
-int     isSurrounded(t_main *main, unsigned int y, unsigned int x)
+int     isSurrounded(t_main *main, unsigned int y, unsigned int x,
+                     int quadrantType)
 {
-    if ((x > 1 && y > 0) &&
-        (main->map.table[y - 1][x - 1] == ' ' || main->map.table[y - 1][x - 1] == '\0' ||
-        main->map.table[y - 1][x] == ' ' || main->map.table[y - 1][x] == '\0' ||
-        main->map.table[y - 1][x + 1] == ' ' || main->map.table[y - 1][x + 1] == '\0' ||
-        main->map.table[y][x - 1] == ' ' || main->map.table[y][x - 1] == '\0' ||
-        main->map.table[y][x + 1] == ' ' || main->map.table[y][x + 1] == '\0' ||
-        main->map.table[y + 1][x - 1] == ' ' || main->map.table[y + 1][x - 1] == '\0' ||
-        main->map.table[y + 1][x] == ' ' || main->map.table[y + 1][x] == '\0' ||
-        main->map.table[y + 1][x + 1] == ' ' || main->map.table[y + 1][x + 1] == '\0'))
-    {
-        printf("Mapa mal en [%d][%d]: %c", y, x, main->map.table[y][x]);
-        return EXIT_FAILURE;
+    printf("[%d][%d]\n", y, x);
+    if (quadrantType == 1
+        && (main->map.table[y - 1][x - 1] == ' '
+        || main->map.table[y - 1][x - 1] == '\0'
+        || main->map.table[y][x - 1] == ' '
+        || main->map.table[y][x - 1] == '\0'
+        || main->map.table[y + 1][x - 1] == ' '
+        || main->map.table[y + 1][x - 1] == '\0'))
+            error(E_MAP);
+    if (main->map.table[y + 1][x] == ' '
+        || main->map.table[y + 1][x] == '\0'
+        || main->map.table[y + 1][x + 1] == ' '
+        || main->map.table[y + 1][x + 1] == '\0'
+        || main->map.table[y - 1][x] == ' '
+        || main->map.table[y - 1][x] == '\0'
+        || main->map.table[y - 1][x + 1] == ' '
+        || main->map.table[y - 1][x + 1] == '\0'
+        || main->map.table[y][x + 1] == ' '
+        || main->map.table[y][x + 1] == '\0')
+            error(E_MAP);
+    return 1;
+}
+
+int     checkHorizontalQuadrant(t_main *main, unsigned int y, unsigned int x)
+{
+    if (main->map.table[y][x + 3] != ' '
+            && main->map.table[y][x + 3] != '\0'
+            && main->map.table[y][x + 3] != '1') {
+        isSurrounded(main, y, x, 1);
+        return 3;
+    } else if (main->map.table[y][x + 2] != ' '
+            && main->map.table[y][x + 2] != '\0'
+            && main->map.table[y][x + 2] != '1') {
+        isSurrounded(main, y, x, 2);
+        return 2;
     }
-//    printf("%c", main->map.table[y][x]);
+    isSurrounded(main, y, x, 1);
+    return 1;
+}
+
+int     checkVerticalQuadrant(t_main *main, unsigned int y, unsigned int x)
+{
+    if (main->map.table[y + 3][x] != ' ' && main->map.table[y + 3][x] != '\0')
+        return 3;
+    if (main->map.table[y + 2][x] != ' ' && main->map.table[y + 2][x] != '\0')
+        return 2;
     return 1;
 }
 
@@ -42,15 +75,14 @@ int     validateMap(t_main *main)
         j = 0;
         while (j < ft_strlen(main->map.table[i]))
         {
-            if ((i > 1 && j > 0) && main->map.table[i][j] != ' ' && main->map.table[i][j] != '1')
-            isSurrounded(main, i, j);
-//            if (ft_isdigit(main->map.table[i][j]) && i == 0 && main->map.table[i][j] != '1')
-//                printf("roto en: [%d][%d]\n", i, j);
-//            else if (ft_isdigit(main->map.table[i][j]) && i != main->map.rows)
-
-            j++;
+            if (i == 0 && !(main->map.table[i][j] == ' ' || main->map.table[i][j] == '1'))
+                error(E_MAP);
+            if (main->map.table[i][j] != ' ' && main->map.table[i][j] != '1')
+                j += checkHorizontalQuadrant(main, i, j);
+            else
+                j++;
         }
-        printf("\n");
+        printf("Fin de linea\n");
         i++;
     }
     return 0;

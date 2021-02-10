@@ -14,13 +14,11 @@
 
 int     saveMapLine(t_main *main, char *line)
 {
-    if (line[0] == '\0')
-        return 0;
     main->map.table[main->map.rows] = ft_strdup(line);
     main->map.rows++;
     if (ft_strlen(line) > main->map.columns || main->map.rows == 0)
         main->map.columns = ft_strlen(line);
-    return 1;
+    return 0;
 }
 
 int     configLine(t_main *main, char *line)
@@ -48,8 +46,10 @@ int     lineValidator(t_main *main, char *line)
 {
     if (ft_isalpha(line[0]))
         configLine(main, line);
-    else
+    else if (line[0] == '1' || line[0] == ' ' || line[0] == '\t')
         saveMapLine(main, line);
+    else if (line[0] == '0')
+        error(E_MAP);
     return 0;
 }
 
@@ -63,12 +63,14 @@ int     fileConfigValidator(t_main *main, char *mapPath)
     if ((fileDescriptor = open(mapPath, O_RDONLY)) > 0)
     {
         main->map.table = malloc(sizeof(char *));
-        while (get_next_line(fileDescriptor, &fileLine))
+        while (get_next_line(fileDescriptor, &fileLine)
+            && (main->map.rows == 0 || !ft_only_spaces_line(fileLine)))
         {
             lineValidator(main, fileLine);
             free(fileLine);
         }
     }
+    free(fileLine);
     validateMap(main);
     printf("\n%s\n", "Todo ha ido bien");
     printf("\nrows: %d\n", main->map.rows);

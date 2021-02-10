@@ -28,16 +28,17 @@
 # define HEADER ANSI_COLOR_CYAN "\n############# 42-CUB3D by @dbalboa- ##############\n\n" ANSI_COLOR_RESET
 # define FOOTER ANSI_COLOR_CYAN "\n\n##################################################\n" ANSI_COLOR_RESET
 # define TITLE ANSI_COLOR_BLUE "There were some errors:\n" ANSI_COLOR_RESET
-# define E_MAP ANSI_COLOR_YELLOW "Bad Map file format,\n\t" ANSI_COLOR_RESET
+# define E_FILE ANSI_COLOR_YELLOW "Bad Map file format,\n\t" ANSI_COLOR_RESET
 
 # define E_ARGS ANSI_COLOR_YELLOW "Wrong arguments, try -> ./cub3d [map] [--save]" ANSI_COLOR_RESET
 # define E_FLAG ANSI_COLOR_YELLOW "Wrong flag, try -> ./cub3d [map] [--save]" ANSI_COLOR_RESET
-# define E_FILE ANSI_COLOR_YELLOW "Map File not found!\n Map file should have .cub extension." ANSI_COLOR_RESET
-# define E_RES_ORDER E_MAP ANSI_COLOR_YELLOW "Resolution must be in the first line." ANSI_COLOR_RESET
+# define E_MAP_FILE ANSI_COLOR_YELLOW "Map File not found!\n Map file should have .cub extension." ANSI_COLOR_RESET
+# define E_RES_ORDER E_FILE ANSI_COLOR_YELLOW "Resolution must be in the first line." ANSI_COLOR_RESET
 # define E_RES ANSI_COLOR_YELLOW "Bad Resolution format, try -> R [WIDTH] [HEIGHT]\n\tMax size: 1920x1080\n" ANSI_COLOR_RESET
-# define E_TEX_ORDER E_MAP ANSI_COLOR_YELLOW "Texture must be four lines between resolution and colors." ANSI_COLOR_RESET
-# define E_TEX E_MAP ANSI_COLOR_YELLOW "Bad Texture file, files should have .xpm extension" ANSI_COLOR_RESET
-# define E_COLOR_ORDER E_MAP ANSI_COLOR_YELLOW " Colors must be in the last two lines." ANSI_COLOR_RESET
+# define E_TEX_ORDER E_FILE ANSI_COLOR_YELLOW "Texture must be four lines between resolution and colors." ANSI_COLOR_RESET
+# define E_TEX E_FILE ANSI_COLOR_YELLOW "Bad Texture file, files should have .xpm extension" ANSI_COLOR_RESET
+# define E_COLOR_ORDER E_FILE ANSI_COLOR_YELLOW " Colors must be in the last two lines." ANSI_COLOR_RESET
+# define E_MAP ANSI_COLOR_YELLOW "Map bad formatted" ANSI_COLOR_RESET
 
 typedef struct		s_draw
 {
