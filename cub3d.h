@@ -13,9 +13,14 @@
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "mlx/mlx.h"
 # include "libft/libft.h"
+# include <limits.h>
+# include <math.h>
+# include "mlx/mlx.h"
 # include <stdio.h>
+# include <string.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 # define ANSI_COLOR_RED     "\x1b[31m"
 # define ANSI_COLOR_GREEN   "\x1b[32m"
@@ -39,6 +44,15 @@
 # define E_TEX E_FILE ANSI_COLOR_YELLOW "Bad Texture file, files should have .xpm extension" ANSI_COLOR_RESET
 # define E_COLOR_ORDER E_FILE ANSI_COLOR_YELLOW " Colors must be in the last two lines." ANSI_COLOR_RESET
 # define E_MAP ANSI_COLOR_YELLOW "Map bad formatted" ANSI_COLOR_RESET
+# define E_NOT_PLAYER E_FILE ANSI_COLOR_YELLOW "Player not found." ANSI_COLOR_RESET
+# define E_PLAYER E_FILE ANSI_COLOR_YELLOW "Player already set." ANSI_COLOR_RESET
+
+
+typedef	struct		s_dvec
+{
+    double			x;
+    double			y;
+}					t_dvec;
 
 typedef struct		s_draw
 {
@@ -60,6 +74,14 @@ typedef struct      s_map
     char                **table;
 }                   t_map;
 
+typedef struct      s_player
+{
+    double			    x;
+    double			    y;
+    double			    mspeed;
+    double			    rspeed;
+}                   t_player;
+
 typedef struct      s_tex
 {
     struct Stack*       path;
@@ -72,6 +94,8 @@ typedef struct	    s_main
     t_tex               tex;
     t_draw              draw;
     t_map               map;
+    t_player            player;
+    t_dvec			    dir;
 }				    t_main;
 
 void	        error(char *Id);
@@ -82,6 +106,7 @@ void            validateResolution(t_main *main, char **resolutionLine);
 int             validateTextures(t_main *main, char **texturesLine);
 void            validateColors(t_main *main, char **colorLine);
 int             validateMap(t_main *main);
+void            isPlayer(t_main *main, unsigned int y, unsigned int x);
 
 // Stack import
 struct Stack*   createStack(int capacity);

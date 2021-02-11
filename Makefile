@@ -18,7 +18,8 @@ SRC =	cub3d.c \
 		fileConfig.c \
 		errors.c \
 		utils/stack.c\
-		map.c
+		map.c \
+		player.c
 SRCDIR = src/
 OBJ = $(SRC:.c=.o)
 LIBFTDIR = libft/
