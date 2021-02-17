@@ -96,6 +96,7 @@ typedef struct	    s_main
     t_map               map;
     t_player            player;
     t_dvec			    dir;
+    t_dvec			    plane;
 }				    t_main;
 
 void	        error(char *Id);

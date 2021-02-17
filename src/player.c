@@ -18,11 +18,11 @@ void	    directionControl(t_main *main, double x, double y)
     main->dir.y = y;
 }
 
-//void	    planeControl(t_main *main, double x, double y)
-//{
-//    main->plane.x = x;
-//    main->plane.y = y;
-//}
+void	    planeControl(t_main *main, double x, double y)
+{
+    main->plane.x = x;
+    main->plane.y = y;
+}
 
 void        isPlayer(t_main *main, unsigned int y, unsigned int x)
 {
@@ -30,26 +30,26 @@ void        isPlayer(t_main *main, unsigned int y, unsigned int x)
         error(E_PLAYER);
     main->player.x = (double)y + 0.5;
     main->player.y = (double)x + 0.5;
-    printf("%f\n", main->player.x);
-    printf("%f\n", main->player.y);
     if (main->map.table[y][x] == 'N')
     {
         directionControl(main, -1, 0);
-//        planeControl(main, 0, 0.66);
+        planeControl(main, 0, 0.66);
     }
     else if (main->map.table[y][x] == 'S')
     {
         directionControl(main, 1, 0);
-//        planeControl(main, 0, -0.66);
+        planeControl(main, 0, -0.66);
     }
     else if (main->map.table[y][x] == 'W')
     {
         directionControl(main, 0, -1);
-//        planeControl(main, -0.66, 0);
+        planeControl(main, -0.66, 0);
     }
     else if (main->map.table[y][x] == 'E')
     {
         directionControl(main, 0, 1);
-//        planeControl(main, 0.66, 0);
+        planeControl(main, 0.66, 0);
     }
+    printf("%fu\n", main->plane.y);
+    printf("%fu\n", main->plane.x);
 }
