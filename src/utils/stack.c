@@ -32,16 +32,14 @@ void push(struct Stack* stack, char *item)
 {
     if (isFull(stack))
         return;
-    stack->array[stack->top] = item;
-    stack->top++;
+    stack->array[stack->top++] = item;
 }
 
 int pop(struct Stack* stack)
 {
     if (isEmpty(stack))
         return INT_MIN;
-    // can be broken, or poppin segmentation fault
-    return *stack->array[stack->top];
+    return *stack->array[stack->top--];
 }
 
 char **peek(struct Stack* stack)

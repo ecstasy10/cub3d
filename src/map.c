@@ -15,6 +15,10 @@
 void    isSurrounded(t_main *main, unsigned int y, unsigned int x,
                      int quadrantType)
 {
+    char    *a;
+
+    a = " " "\0";
+    printf("%s", ft_strchr(a, ' '));
     if (quadrantType == 1
         && (main->map.table[y - 1][x - 1] == ' '
         || main->map.table[y - 1][x - 1] == '\0'
@@ -59,9 +63,11 @@ void     validation(t_main *main, unsigned int i, unsigned int j)
     if (i == 0 && !(main->map.table[i][j] == ' '
                     || main->map.table[i][j] == '1'))
         error(E_MAP);
-    if (main->map.table[i][j] == 'N' || main->map.table[i][j] == 'S'
-        || main->map.table[i][j] == 'W' || main->map.table[i][j] == 'E')
+    else if (main->map.table[i][j] == 'N' || main->map.table[i][j] == 'S'
+        || main->map.table[i][j] == 'E' || main->map.table[i][j] == 'W')
         isPlayer(main, i, j);
+    else if (main->map.table[i][j] == '2')
+        spriteControl(main, i, j);
 }
 
 int     validateMap(t_main *main)

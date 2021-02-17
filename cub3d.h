@@ -72,6 +72,7 @@ typedef struct      s_map
     unsigned int        rows;
     unsigned int        columns;
     char                **table;
+    int                 spritesLength;
 }                   t_map;
 
 typedef struct      s_player
@@ -97,9 +98,10 @@ typedef struct	    s_main
     t_player            player;
     t_dvec			    dir;
     t_dvec			    plane;
+    t_dvec			    *sprite;
 }				    t_main;
 
-void	        error(char *Id);
+void	        error(char *errorId);
 int				fileExtensionCheck(char *arg, char *ext);
 int             fileFlagCheck(char *flagArg, char *flag);
 int             fileConfigValidator(t_main *main, char *mapPath);
@@ -108,6 +110,7 @@ int             validateTextures(t_main *main, char **texturesLine);
 void            validateColors(t_main *main, char **colorLine);
 int             validateMap(t_main *main);
 void            isPlayer(t_main *main, unsigned int y, unsigned int x);
+void            spriteControl(t_main *main, int y, int x);
 
 // Stack import
 struct Stack*   createStack(int capacity);

@@ -12,11 +12,11 @@
 
 #include "../cub3d.h"
 
-void	error(char *Id)
+void	error(char *errorId)
 {
     ft_putstr_fd(HEADER, 1);
     ft_putstr_fd(TITLE, 1);
-    ft_putstr_fd(Id, 1);
+    ft_putstr_fd(errorId, 1);
     ft_putstr_fd(FOOTER, 1);
     exit(EXIT_FAILURE);
 }

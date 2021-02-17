@@ -19,7 +19,7 @@ SRC =	cub3d.c \
 		errors.c \
 		utils/stack.c\
 		map.c \
-		player.c
+		mapControls.c
 SRCDIR = src/
 OBJ = $(SRC:.c=.o)
 LIBFTDIR = libft/

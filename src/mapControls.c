@@ -12,6 +12,13 @@
 
 #include "../cub3d.h"
 
+void        spriteControl(t_main *main, int y, int x)
+{
+    main->sprite[main->map.spritesLength].x = (double)y + 0.5;
+    main->sprite[main->map.spritesLength].y = (double)x + 0.5;
+    main->map.spritesLength++;
+}
+
 void	    directionControl(t_main *main, double x, double y)
 {
     main->dir.x = x;
@@ -50,6 +57,4 @@ void        isPlayer(t_main *main, unsigned int y, unsigned int x)
         directionControl(main, 0, 1);
         planeControl(main, 0.66, 0);
     }
-    printf("%fu\n", main->plane.y);
-    printf("%fu\n", main->plane.x);
 }
