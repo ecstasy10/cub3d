@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "cub3d.h"
 
 int		main(int ac, char **av)
 {
@@ -18,6 +18,7 @@ int		main(int ac, char **av)
 
     ft_bzero(&main, sizeof(t_main));
     main.tex.path = createStack(5);
+    main.sprite = (t_dvec*)malloc(sizeof(t_dvec));
     if (ac >= 2 && fileExtensionCheck(av[1], "cub"))
     {
          if (ac == 3 && fileFlagCheck(av[2], "--save"))

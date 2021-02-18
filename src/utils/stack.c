@@ -1,7 +1,7 @@
 #include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "../../cub3d.h"
+#include "../cub3d.h"
 
 struct Stack {
     int top;

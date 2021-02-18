@@ -13,10 +13,10 @@
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <limits.h>
 # include <math.h>
-# include "mlx/mlx.h"
+# include "../mlx/mlx.h"
 # include <stdio.h>
 # include <string.h>
 # include <stdlib.h>
@@ -111,6 +111,9 @@ void            validateColors(t_main *main, char **colorLine);
 int             validateMap(t_main *main);
 void            isPlayer(t_main *main, unsigned int y, unsigned int x);
 void            spriteControl(t_main *main, int y, int x);
+
+// Algorithms
+int             intersection(int array1[4], int array2[4]);
 
 // Stack import
 struct Stack*   createStack(int capacity);

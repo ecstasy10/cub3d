@@ -15,28 +15,21 @@
 void    isSurrounded(t_main *main, unsigned int y, unsigned int x,
                      int quadrantType)
 {
-    char    *a;
+    char    *badMap;
+//    char    *player;
 
-    a = " " "\0";
-    printf("%s", ft_strchr(a, ' '));
+    badMap = " " "\0";
+//    player = "N" "S" "E" "W";
     if (quadrantType == 1
-        && (main->map.table[y - 1][x - 1] == ' '
-        || main->map.table[y - 1][x - 1] == '\0'
-        || main->map.table[y][x - 1] == ' '
-        || main->map.table[y][x - 1] == '\0'
-        || main->map.table[y + 1][x - 1] == ' '
-        || main->map.table[y + 1][x - 1] == '\0'))
+        && (!!ft_strchr(badMap, main->map.table[y - 1][x - 1])
+        || !!ft_strchr(badMap, main->map.table[y][x - 1])
+        || !!ft_strchr(badMap, main->map.table[y + 1][x - 1])))
             error(E_MAP);
-    if (main->map.table[y + 1][x] == ' '
-        || main->map.table[y + 1][x] == '\0'
-        || main->map.table[y + 1][x + 1] == ' '
-        || main->map.table[y + 1][x + 1] == '\0'
-        || main->map.table[y - 1][x] == ' '
-        || main->map.table[y - 1][x] == '\0'
-        || main->map.table[y - 1][x + 1] == ' '
-        || main->map.table[y - 1][x + 1] == '\0'
-        || main->map.table[y][x + 1] == ' '
-        || main->map.table[y][x + 1] == '\0')
+    if (!!ft_strchr(badMap, main->map.table[y + 1][x])
+        || !!ft_strchr(badMap, main->map.table[y + 1][x + 1])
+        || !!ft_strchr(badMap, main->map.table[y - 1][x])
+        || !!ft_strchr(badMap, main->map.table[y - 1][x + 1])
+        || !!ft_strchr(badMap, main->map.table[y][x + 1]))
             error(E_MAP);
 }
 
@@ -75,6 +68,7 @@ int     validateMap(t_main *main)
     unsigned int     i;
     unsigned int     j;
 
+    main->map.spritesLength = 0;
     i = 0;
     while (i < main->map.rows)
     {
@@ -82,12 +76,12 @@ int     validateMap(t_main *main)
         while (j < ft_strlen(main->map.table[i]))
         {
             validation(main, i, j);
-            if (main->map.table[i][j] != ' ' && main->map.table[i][j] != '1')
-            {
-                j += checkHorizontalQuadrant(main, i, j);
-            }
-            else
-                j++;
+//            if (main->map.table[i][j] != ' ' && main->map.table[i][j] != '1')
+//            {
+//                j += checkHorizontalQuadrant(main, i, j);
+//            }
+//            else
+            j++;
         }
         i++;
     }
