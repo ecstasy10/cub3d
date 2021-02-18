@@ -26,8 +26,8 @@ int		main(int ac, char **av)
          else if (ac == 3)
              error(E_FLAG);
         fileConfigValidator(&main, av[1]);
-    } else if (!fileExtensionCheck(av[1], "cub"))
-        error(E_MAP_FILE);
+    } else if (ac >= 2 && !fileExtensionCheck(av[1], "cub"))
+        error(E_MAP_FILE_EXT);
     else
         error(E_ARGS);
     return (0);

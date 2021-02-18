@@ -37,7 +37,8 @@
 
 # define E_ARGS ANSI_COLOR_YELLOW "Wrong arguments, try -> ./cub3d [map] [--save]" ANSI_COLOR_RESET
 # define E_FLAG ANSI_COLOR_YELLOW "Wrong flag, try -> ./cub3d [map] [--save]" ANSI_COLOR_RESET
-# define E_MAP_FILE ANSI_COLOR_YELLOW "Map File not found!\n Map file should have .cub extension." ANSI_COLOR_RESET
+# define E_MAP_FILE ANSI_COLOR_YELLOW "Map file not found!" ANSI_COLOR_RESET
+# define E_MAP_FILE_EXT E_MAP_FILE ANSI_COLOR_YELLOW "\n Map file should have .cub extension." ANSI_COLOR_RESET
 # define E_RES_ORDER E_FILE ANSI_COLOR_YELLOW "Resolution must be in the first line." ANSI_COLOR_RESET
 # define E_RES ANSI_COLOR_YELLOW "Bad Resolution format, try -> R [WIDTH] [HEIGHT]\n\tMax size: 1920x1080\n" ANSI_COLOR_RESET
 # define E_TEX_ORDER E_FILE ANSI_COLOR_YELLOW "Texture must be four lines between resolution and colors." ANSI_COLOR_RESET
