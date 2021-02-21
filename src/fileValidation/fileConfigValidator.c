@@ -70,16 +70,14 @@ int     fileConfigValidator(t_main *main, char *mapPath)
             free(fileLine);
         }
     }
-    free(fileLine);
     validateMap(main);
     printf("\nrows: %d\n", main->map.rows);
     printf("\ncols: %d\n", main->map.columns);
     unsigned int i = 0;
-    while (i < (main->map.rows))
+    while (i < main->map.rows)
     {
         printf("%s\n", main->map.table[i]);
         i++;
     }
-    free(main->map.table);
     return 0;
 }

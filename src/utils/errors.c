@@ -20,3 +20,11 @@ void	error(char *errorId)
     ft_putstr_fd(FOOTER, 1);
     exit(EXIT_FAILURE);
 }
+
+int		program_exit(t_main *main)
+{
+    mlx_destroy_window(main->mlx.ptr, main->win.ptr);
+    system("leaks cub3D");
+    exit(EXIT_SUCCESS);
+    return (1);
+}

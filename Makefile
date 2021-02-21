@@ -17,9 +17,16 @@ SRC =	cub3d.c \
 		fileValidation/fileConfigValidator.c \
 		fileValidation/fileConfig.c \
 		utils/errors.c \
-		utils/stack.c\
+		utils/algorithms.c \
+		utils/keys.c \
 		fileValidation/map.c \
-		fileValidation/mapControls.c
+		fileValidation/mapControls.c \
+		graphics/window_initialize.c \
+		graphics/texture_initialize.c \
+		graphics/wall_raycast.c \
+		graphics/sprite_raycast.c \
+		graphics/draw_raycast.c \
+		graphics/bitmap.c
 SRCDIR = src/
 OBJ = $(SRC:.c=.o)
 LIBFTDIR = libft/

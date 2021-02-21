@@ -1,15 +1,18 @@
 NO ./textures/wolf3D/wood.xpm
-R 					1240 680
-F 255,150,0
+R 					800 600
+F 122,122,122
 SO ./textures/wolf3D/greystone.xpm
 WE ./textures/wolf3D/redbrick.xpm
 EA ./textures/wolf3D/purplestone.xpm
 S ./textures/wolf3D/barrel.xpm
-C 0,255,255
+C 161,216,240
 
 
-111111
-100001
-102W01
-100001
-111111
+1111111111
+1000000001
+1000000001
+10000S0001
+1000000001
+1000020001
+1000000001
+1111111111

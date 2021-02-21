@@ -12,21 +12,7 @@
 
 #include "../cub3d.h"
 
-int     intersection(int array1[4], int array2[4])
+double	dist(double x1, double x2)
 {
-    int arrayReturn[sizeof(array1) + sizeof(array2)];
-    int count = 0;
-
-    for(int i = 0; i < 4; i++)
-    {
-        for(int j = 0; j < 4; j++)
-        {
-            if(array1[i]==array2[j])
-            {
-                count = count + 1;
-                arrayReturn[count] = array1[i];
-            }
-        }
-    }
-
+    return (sqrt(1 + (pow(x1, 2) / pow(x2, 2))));
 }

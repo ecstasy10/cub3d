@@ -12,20 +12,26 @@
 
 #include "cub3d.h"
 
+void    init(t_main *main)
+{
+    main->sprite = (t_dvec*)malloc(sizeof(t_dvec));
+}
+
 int		main(int ac, char **av)
 {
     t_main main;
 
     ft_bzero(&main, sizeof(t_main));
-    main.tex.path = createStack(5);
-    main.sprite = (t_dvec*)malloc(sizeof(t_dvec));
+    init(&main);
     if (ac >= 2 && fileExtensionCheck(av[1], "cub"))
     {
+        fileConfigValidator(&main, av[1]);
+        sprite_init(&main, main.sprite_count);
          if (ac == 3 && fileFlagCheck(av[2], "--save"))
-             return 22;
+             bitmap_save(&main);
          else if (ac == 3)
              error(E_FLAG);
-        fileConfigValidator(&main, av[1]);
+        window_initialize(&main);
     } else if (ac >= 2 && !fileExtensionCheck(av[1], "cub"))
         error(E_MAP_FILE_EXT);
     else

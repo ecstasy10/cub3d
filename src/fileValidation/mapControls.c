@@ -58,3 +58,20 @@ void        isPlayer(t_main *main, unsigned int y, unsigned int x)
         planeControl(main, 0.66, 0);
     }
 }
+
+void	sprite_control(t_main *main, int row, int column)
+{
+    main->sprite[main->sprite_count].x = (double)row + 0.5;
+    main->sprite[main->sprite_count].y = (double)column + 0.5;
+    main->sprite_count++;
+}
+
+void	sprite_init(t_main *main, int count)
+{
+    if (!(main->sprite = (t_dvec*)malloc(count * sizeof(t_dvec))))
+        error(E_SPRITE);
+    if (!(main->sprite_order = (int*)malloc(count * sizeof(int))))
+        error(E_SPRITE);
+    if (!(main->sprite_dist = (double*)malloc(count * sizeof(double))))
+        error(E_SPRITE);
+}

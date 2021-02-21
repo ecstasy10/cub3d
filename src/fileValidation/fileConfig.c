@@ -35,20 +35,31 @@ void    validateColors(t_main *main, char **colorLine)
         main->draw.c_rgb = color_rgb_to_hex(atoi(rgb[0]), atoi(rgb[1]), atoi(rgb[2]));
 }
 
-void    setTexture(t_main *main, char *texture, char *textureId)
+void    setTexture(t_main *main, char *texture, int is_sprite)
 {
-    if (!ft_strcmp(textureId, "S"))
-        main->tex.sprite = ft_strdup(texture);
-    else
-        push(main->tex.path, texture);
+    if (main->tex_it < 5)
+    {
+        main->tex[main->tex_it].path = ft_strdup(texture);
+        printf("%s\n", main->tex[main->tex_it].path);
+        main->tex[main->tex_it].is_sprite = is_sprite;
+        main->tex_it++;
+        printf("\nComon men!\n");
+    } else
+        error(E_TEX);
 }
 
 int     validateTextures(t_main *main, char **texturesLine)
 {
-    if ((fileExtensionCheck(texturesLine[1], "xpm")
+    if (((fileExtensionCheck(texturesLine[1], "xpm")
         || fileExtensionCheck(texturesLine[1], "png"))
         && ft_is_valid_file(texturesLine[1]))
-        setTexture(main, texturesLine[1], texturesLine[0]);
+        && (ft_memcmp(texturesLine[0], "NO", 2) == 0
+            || ft_memcmp(texturesLine[0], "SO", 2) == 0
+            || ft_memcmp(texturesLine[0], "WE", 2) == 0
+            || ft_memcmp(texturesLine[0], "EA", 2) == 0
+            || ft_memcmp(texturesLine[0], "S", 2) == 0))
+        setTexture(main, texturesLine[1],
+                   !!ft_memcmp(texturesLine[0], "S", 2) == 0);
     else
         error(E_TEX);
     return 0;
