@@ -204,7 +204,7 @@ int             validateTextures(t_main *main, char **texturesLine);
 void            validateColors(t_main *main, char **colorLine);
 int             validateMap(t_main *main);
 void            isPlayer(t_main *main, unsigned int y, unsigned int x);
-void            spriteControl(t_main *main, int y, int x);
+void            sprite_control(t_main *main, int y, int x);
 void	        sprite_init(t_main *main, int count);
 
 // Graphics

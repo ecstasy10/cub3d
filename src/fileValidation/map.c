@@ -60,7 +60,7 @@ void     validation(t_main *main, unsigned int i, unsigned int j)
         || main->map.table[i][j] == 'E' || main->map.table[i][j] == 'W')
         isPlayer(main, i, j);
     else if (main->map.table[i][j] == '2')
-        spriteControl(main, i, j);
+        sprite_control(main, i, j);
 }
 
 int     validateMap(t_main *main)

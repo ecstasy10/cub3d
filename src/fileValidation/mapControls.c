@@ -12,13 +12,6 @@
 
 #include "../cub3d.h"
 
-void        spriteControl(t_main *main, int y, int x)
-{
-    main->sprite[main->map.spritesLength].x = (double)y + 0.5;
-    main->sprite[main->map.spritesLength].y = (double)x + 0.5;
-    main->map.spritesLength++;
-}
-
 void	    directionControl(t_main *main, double x, double y)
 {
     main->dir.x = x;

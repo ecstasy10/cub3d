@@ -34,7 +34,7 @@ int		display(t_main *main)
 void	speed_initialize(t_main *main)
 {
     main->draw.z_buffer = (double*)malloc(main->win.width * sizeof(double));
-    main->player.mspeed = 0.15;
+    main->player.mspeed = 0.20;
     main->player.rspeed = 0.05;
 }
 
