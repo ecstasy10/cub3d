@@ -36,8 +36,8 @@ static void	sprite_calculate(t_main *main)
 
 static void	sprite_translate_to_camera(t_main *main, int i)
 {
-    main->draw.sprite.x = main->sprite[main->sprite_order[i]].x - main->pos.x;
-    main->draw.sprite.y = main->sprite[main->sprite_order[i]].y - main->pos.y;
+    main->draw.sprite.x = main->sprite[main->sprite_order[i]].x - main->player.x;
+    main->draw.sprite.y = main->sprite[main->sprite_order[i]].y - main->player.y;
     main->draw.sprite.inver = 1.0 /
                              (main->plane.x * main->dir.y - main->dir.x * main->plane.y);
     main->draw.sprite.transform.x = main->draw.sprite.inver *
@@ -100,8 +100,8 @@ void		sprite_raycast(t_main *main)
     while (i < main->sprite_count)
     {
         main->sprite_order[i] = i;
-        main->sprite_dist[i] = pow(main->pos.x - main->sprite[i].x, 2)
-                              + pow(main->pos.y - main->sprite[i].y, 2);
+        main->sprite_dist[i] = pow(main->player.x - main->sprite[i].x, 2)
+                              + pow(main->player.y - main->sprite[i].y, 2);
         i++;
     }
     sprite_sort(main->sprite_order, main->sprite_dist, main->sprite_count);

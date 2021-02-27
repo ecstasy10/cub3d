@@ -26,10 +26,10 @@ static void	vertical_calculate(t_main *main)
 static void	wall_ray_distance_calculate(t_main *main)
 {
     if (main->ray.wall.side == 0)
-        main->ray.wall.dist = (main->maze.x - main->pos.x +
+        main->ray.wall.dist = (main->maze.x - main->player.x +
                               (1 - main->ray.step.x) / 2) / main->ray.dir.x;
     else
-        main->ray.wall.dist = (main->maze.y - main->pos.y +
+        main->ray.wall.dist = (main->maze.y - main->player.y +
                               (1 - main->ray.step.y) / 2) / main->ray.dir.y;
 }
 
@@ -60,23 +60,23 @@ static void	wall_ray_step_and_initial_side_calculate(t_main *main)
     if (main->ray.dir.x < 0)
     {
         main->ray.step.x = -1;
-        main->ray.side.dist.x = (main->pos.x - main->maze.x) * main->ray.delta.x;
+        main->ray.side.dist.x = (main->player.x - main->maze.x) * main->ray.delta.x;
     }
     else
     {
         main->ray.step.x = 1;
-        main->ray.side.dist.x = (main->maze.x + 1.0 - main->pos.x) *
+        main->ray.side.dist.x = (main->maze.x + 1.0 - main->player.x) *
                                main->ray.delta.x;
     }
     if (main->ray.dir.y < 0)
     {
         main->ray.step.y = -1;
-        main->ray.side.dist.y = (main->pos.y - main->maze.y) * main->ray.delta.y;
+        main->ray.side.dist.y = (main->player.y - main->maze.y) * main->ray.delta.y;
     }
     else
     {
         main->ray.step.y = 1;
-        main->ray.side.dist.y = (main->maze.y + 1.0 - main->pos.y) *
+        main->ray.side.dist.y = (main->maze.y + 1.0 - main->player.y) *
                                main->ray.delta.y;
     }
 }
@@ -91,8 +91,8 @@ void		wall_raycast(t_main *main)
         main->ray.cam.x = (2 * main->ray.x) / (double)main->win.width - 1;
         main->ray.dir.x = main->dir.x + main->plane.x * main->ray.cam.x;
         main->ray.dir.y = main->dir.y + main->plane.y * main->ray.cam.x;
-        main->maze.x = (int)main->pos.x;
-        main->maze.y = (int)main->pos.y;
+        main->maze.x = (int)main->player.x;
+        main->maze.y = (int)main->player.y;
         main->ray.delta.x = dist(main->ray.dir.y, main->ray.dir.x);
         main->ray.delta.y = dist(main->ray.dir.x, main->ray.dir.y);
         wall_ray_step_and_initial_side_calculate(main);

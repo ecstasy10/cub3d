@@ -43,7 +43,6 @@ void    setTexture(t_main *main, char *texture, int is_sprite)
         printf("%s\n", main->tex[main->tex_it].path);
         main->tex[main->tex_it].is_sprite = is_sprite;
         main->tex_it++;
-        printf("\nComon men!\n");
     } else
         error(E_TEX);
 }

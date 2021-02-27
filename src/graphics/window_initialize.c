@@ -34,13 +34,15 @@ int		display(t_main *main)
 void	speed_initialize(t_main *main)
 {
     main->draw.z_buffer = (double*)malloc(main->win.width * sizeof(double));
-    main->pos.mspeed = 0.15;
-    main->pos.rspeed = 0.05;
+    main->player.mspeed = 0.15;
+    main->player.rspeed = 0.05;
 }
 
 void        window_initialize(t_main *main)
 {
+    printf("\nnose loko\n");
     main->mlx.ptr = mlx_init();
+    printf("\nnose loko 2\n");
     main->win.ptr = mlx_new_window(main->mlx.ptr, main->win.width,
                                   main->win.height, "cub3D");
     speed_initialize(main);

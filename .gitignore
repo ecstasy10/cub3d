@@ -7,6 +7,9 @@
 .idea/misc.xml
 cmake-build-debug/CMakeFiles/clion-log.txt
 src/*.o
+src/fileValidation/*.o
+src/graphics/*.o
+src/utils/*.o
 libft/*.o
 cub3D
 libft/libft\.a
@@ -19,4 +22,3 @@ mlx/mlx_new_window\.o
 mlx/mlx_png\.o
 mlx/mlx_shaders\.o
 mlx/mlx_xpm\.o
-src/utils/stack\.o

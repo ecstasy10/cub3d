@@ -14,12 +14,12 @@
 
 void	player_move(t_main *main, double x, double y)
 {
-    if (main->map.table[(int)(main->pos.x + x * main->pos.mspeed)][(int)main->pos.y]
+    if (main->map.table[(int)(main->player.x + x * main->player.mspeed)][(int)main->player.y]
         != '1')
-        main->pos.x += x * main->pos.mspeed;
-    if (main->map.table[(int)main->pos.x][(int)(main->pos.y + y * main->pos.mspeed)]
+        main->player.x += x * main->player.mspeed;
+    if (main->map.table[(int)main->player.x][(int)(main->player.y + y * main->player.mspeed)]
         != '1')
-        main->pos.y += y * main->pos.mspeed;
+        main->player.y += y * main->player.mspeed;
     display(main);
 }
 
@@ -46,13 +46,13 @@ int		key_core(t_main *main)
     if (main->keyboard[W_KEY])
         player_move(main, main->dir.x, main->dir.y);
     if (main->keyboard[LEFT_KEY])
-        player_rotate(main, main->pos.rspeed);
+        player_rotate(main, main->player.rspeed);
     if (main->keyboard[D_KEY])
         player_move(main, main->plane.x, main->plane.y);
     if (main->keyboard[S_KEY])
         player_move(main, -main->dir.x, -main->dir.y);
     if (main->keyboard[RIGHT_KEY])
-        player_rotate(main, -main->pos.rspeed);
+        player_rotate(main, -main->player.rspeed);
     if (main->keyboard[A_KEY])
         player_move(main, -main->plane.x, -main->plane.y);
     if (main->keyboard[ESC_KEY])

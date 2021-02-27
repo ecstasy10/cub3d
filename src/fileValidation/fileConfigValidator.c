@@ -62,7 +62,7 @@ int     fileConfigValidator(t_main *main, char *mapPath)
     fileLine = NULL;
     if ((fileDescriptor = open(mapPath, O_RDONLY)) > 0)
     {
-        main->map.table = malloc(sizeof(char *));
+        main->map.table = (char**)malloc(main->map.rows * sizeof(char*));
         while (get_next_line(fileDescriptor, &fileLine)
             && (main->map.rows == 0 || !ft_only_spaces_line(fileLine)))
         {
@@ -71,6 +71,7 @@ int     fileConfigValidator(t_main *main, char *mapPath)
         }
     }
     validateMap(main);
+    close(fileDescriptor);
     printf("\nrows: %d\n", main->map.rows);
     printf("\ncols: %d\n", main->map.columns);
     unsigned int i = 0;

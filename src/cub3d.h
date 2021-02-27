@@ -144,14 +144,6 @@ typedef struct		s_mlx
     void			    *ptr;
 }					t_mlx;
 
-typedef struct		s_pos
-{
-    double			    x;
-    double			    y;
-    double			    mspeed;
-    double			    rspeed;
-}					t_pos;
-
 typedef	struct		s_cam
 {
     double			    x;
@@ -192,7 +184,6 @@ typedef struct	    s_main
     t_dvec			    plane;
     t_dvec			    *sprite;
     t_mlx			    mlx;
-    t_pos			    pos;
     t_ray			    ray;
     t_img			    img;
     t_ivec			    maze;
@@ -217,6 +208,7 @@ void            spriteControl(t_main *main, int y, int x);
 void	        sprite_init(t_main *main, int count);
 
 // Graphics
+int		        map_init(t_main *main);
 void            window_initialize(t_main *main);
 void	        texture_initialize(t_main *main);
 int		        texture_sort(t_main *main);

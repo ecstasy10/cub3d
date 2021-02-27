@@ -21,6 +21,7 @@ SRC =	cub3d.c \
 		utils/keys.c \
 		fileValidation/map.c \
 		fileValidation/mapControls.c \
+		graphics/map_initialize.c \
 		graphics/window_initialize.c \
 		graphics/texture_initialize.c \
 		graphics/wall_raycast.c \

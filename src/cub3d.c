@@ -23,7 +23,9 @@ int		main(int ac, char **av)
 
     ft_bzero(&main, sizeof(t_main));
     init(&main);
-    if (ac >= 2 && fileExtensionCheck(av[1], "cub"))
+    if (ac > 3)
+        error(E_ARGS);
+    else if (ac >= 2 && fileExtensionCheck(av[1], "cub"))
     {
         fileConfigValidator(&main, av[1]);
         sprite_init(&main, main.sprite_count);

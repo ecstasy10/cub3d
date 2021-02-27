@@ -16,6 +16,7 @@ int		texture_sort(t_main *main)
 {
     int	tex;
 
+    tex = 0;
     if (main->ray.wall.side == 1)
     {
         if (main->ray.dir.y > 0)
@@ -36,9 +37,9 @@ int		texture_sort(t_main *main)
 void	texture_calculate(t_main *main, int i)
 {
     if (main->ray.wall.side == 0)
-        main->ray.wall.x = main->pos.y + main->ray.wall.dist * main->ray.dir.y;
+        main->ray.wall.x = main->player.y + main->ray.wall.dist * main->ray.dir.y;
     else
-        main->ray.wall.x = main->pos.x + main->ray.wall.dist * main->ray.dir.x;
+        main->ray.wall.x = main->player.x + main->ray.wall.dist * main->ray.dir.x;
     main->ray.wall.x -= floor(main->ray.wall.x);
     main->tex[i].x = (int)(main->ray.wall.x * (double)main->tex[i].width);
     if (main->ray.wall.side == 0 && main->ray.dir.x > 0)
@@ -52,20 +53,25 @@ void	texture_calculate(t_main *main, int i)
 
 void	texture_initialize(t_main *main)
 {
-    int	i;
+    size_t	i;
 
     i = 0;
     while (i < 5)
     {
         if (!(main->tex[i].img = mlx_xpm_file_to_image(main->mlx.ptr,
-                main->tex[i].path, &main->tex[i].width,
-                &main->tex[i].height)))
+                        main->tex[i].path, &main->tex[i].width,
+                        &main->tex[i].height)))
+        {
+            printf("error %s\n", main->tex[i].path);
             error(E_TEX);
-        if (!(main->tex[i].img->buff =
-                (int*)mlx_get_data_addr(main->tex[i].img,
-                &main->tex[i].img->bits_per_pixel,
-                &main->tex[i].img->size_line, &main->tex[i].img->endian)))
+        }
+        if (!(main->tex[i].img->buff = (int*)mlx_get_data_addr(main->tex[i].img,
+                        &main->tex[i].img->bits_per_pixel,
+                        &main->tex[i].img->size_line, &main->tex[i].img->endian)))
+        {
+            printf("error 2\n");
             error(E_TEX);
+        }
         i++;
     }
 }
