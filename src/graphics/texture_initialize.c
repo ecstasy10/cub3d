@@ -61,17 +61,11 @@ void	texture_initialize(t_main *main)
         if (!(main->tex[i].img = mlx_xpm_file_to_image(main->mlx.ptr,
                         main->tex[i].path, &main->tex[i].width,
                         &main->tex[i].height)))
-        {
-            printf("error %s\n", main->tex[i].path);
             error(E_TEX);
-        }
         if (!(main->tex[i].img->buff = (int*)mlx_get_data_addr(main->tex[i].img,
                         &main->tex[i].img->bits_per_pixel,
                         &main->tex[i].img->size_line, &main->tex[i].img->endian)))
-        {
-            printf("error 2\n");
             error(E_TEX);
-        }
         i++;
     }
 }

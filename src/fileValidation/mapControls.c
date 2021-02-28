@@ -28,8 +28,8 @@ void        isPlayer(t_main *main, unsigned int y, unsigned int x)
 {
     if (main->player.x)
         error(E_PLAYER);
-    main->player.x = (double)y + 0.5;
-    main->player.y = (double)x + 0.5;
+    main->player.x = (double)x + 0.5;
+    main->player.y = (double)y + 0.5;
     if (main->map.table[y][x] == 'N')
     {
         directionControl(main, -1, 0);
@@ -54,8 +54,8 @@ void        isPlayer(t_main *main, unsigned int y, unsigned int x)
 
 void	sprite_control(t_main *main, int row, int column)
 {
-    main->sprite[main->sprite_count].x = (double)row + 0.5;
-    main->sprite[main->sprite_count].y = (double)column + 0.5;
+    main->sprite[main->sprite_count].y = (double)row + 0.5;
+    main->sprite[main->sprite_count].x = (double)column + 0.5;
     main->sprite_count++;
 }
 
