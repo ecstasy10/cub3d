@@ -38,20 +38,20 @@ static void	wall_ray_hit_calculate(t_main *main)
     main->ray.wall.hit = 0;
     while (main->ray.wall.hit == 0)
     {
-        if (main->map.table[main->maze.x][main->maze.y] == '1')
-            main->ray.wall.hit = 1;
         if (main->ray.side.dist.x < main->ray.side.dist.y)
         {
             main->ray.side.dist.x += main->ray.delta.x;
             main->maze.x += main->ray.step.x;
             main->ray.wall.side = 0;
         }
-        else
+        else if (main->ray.side.dist.x > main->ray.side.dist.y)
         {
             main->ray.side.dist.y += main->ray.delta.y;
             main->maze.y += main->ray.step.y;
             main->ray.wall.side = 1;
         }
+        if (main->map.table[main->maze.x][main->maze.y] == '1')
+            main->ray.wall.hit = 1;
     }
 }
 
@@ -66,7 +66,7 @@ static void	wall_ray_step_and_initial_side_calculate(t_main *main)
     {
         main->ray.step.x = 1;
         main->ray.side.dist.x = (main->maze.x + 1.0 - main->player.x) *
-                               main->ray.delta.x;
+        main->ray.delta.x;
     }
     if (main->ray.dir.y < 0)
     {
@@ -77,7 +77,7 @@ static void	wall_ray_step_and_initial_side_calculate(t_main *main)
     {
         main->ray.step.y = 1;
         main->ray.side.dist.y = (main->maze.y + 1.0 - main->player.y) *
-                               main->ray.delta.y;
+        main->ray.delta.y;
     }
 }
 

@@ -70,7 +70,7 @@ void     validateResolution(t_main *main, char **resolutionLine)
         && ft_is_str_digit(resolutionLine[2]) && ft_atoi(resolutionLine[2]) > 1)
     {
         main->win.width = ft_atoi(resolutionLine[1]) > 1920 ? 1920 : ft_atoi(resolutionLine[1]);
-        main->win.height = ft_atoi(resolutionLine[2]) > 1080 ? 1080 : ft_atoi(resolutionLine[1]);
+        main->win.height = ft_atoi(resolutionLine[2]) > 1080 ? 1080 : ft_atoi(resolutionLine[2]);
     } else
         error(E_RES);
 }

@@ -71,13 +71,5 @@ int     fileConfigValidator(t_main *main, char *mapPath)
         }
     }
     validateMap(main);
-    printf("\nrows: %d\n", main->map.rows);
-    printf("\ncols: %d\n", main->map.columns);
-    unsigned int i = 0;
-    while (i < main->map.rows)
-    {
-        printf("%s\n", main->map.table[i]);
-        i++;
-    }
     return 0;
 }

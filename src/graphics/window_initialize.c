@@ -41,6 +41,7 @@ void	speed_initialize(t_main *main)
 void        window_initialize(t_main *main)
 {
     printf("\nnose loko\n");
+    main->mlx.ptr = ft_strdup("test");
     main->mlx.ptr = mlx_init();
     printf("\nnose loko 2\n");
     main->win.ptr = mlx_new_window(main->mlx.ptr, main->win.width,

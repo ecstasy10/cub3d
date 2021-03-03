@@ -24,7 +24,7 @@ void	error(char *errorId)
 int		program_exit(t_main *main)
 {
     mlx_destroy_window(main->mlx.ptr, main->win.ptr);
-    system("leaks cub3D");
+    free(main->map.table);
+//    system("leaks cub3D");
     exit(EXIT_SUCCESS);
-    return (1);
 }

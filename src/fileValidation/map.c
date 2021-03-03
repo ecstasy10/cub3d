@@ -53,9 +53,11 @@ int     checkHorizontalQuadrant(t_main *main, unsigned int y, unsigned int x)
 
 void     validation(t_main *main, unsigned int i, unsigned int j)
 {
-    if (i == 0 && !(main->map.table[i][j] == ' '
-                    || main->map.table[i][j] == '1'))
+    if ((i == 0 || i == (main->map.rows - 1))
+        && !(main->map.table[i][j] == ' ' || main->map.table[i][j] == '1'))
         error(E_MAP);
+    else if (main->map.table[i][j] == '0')
+        isSurrounded(main, i, j, 1);
     else if (main->map.table[i][j] == 'N' || main->map.table[i][j] == 'S'
         || main->map.table[i][j] == 'E' || main->map.table[i][j] == 'W')
         isPlayer(main, i, j);
@@ -76,11 +78,6 @@ int     validateMap(t_main *main)
         while (j < ft_strlen(main->map.table[i]))
         {
             validation(main, i, j);
-//            if (main->map.table[i][j] != ' ' && main->map.table[i][j] != '1')
-//            {
-//                j += checkHorizontalQuadrant(main, i, j);
-//            }
-//            else
             j++;
         }
         i++;
