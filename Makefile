@@ -12,22 +12,21 @@
 
 NAME = cub3D
 
-SRC =	cub3d.c \
-		fileValidation/fileValidation.c \
-		fileValidation/fileConfigValidator.c \
-		fileValidation/fileConfig.c \
-		utils/errors.c \
-		utils/algorithms.c \
-		utils/keys.c \
-		fileValidation/map.c \
-		fileValidation/mapControls.c \
-		graphics/map_initialize.c \
-		graphics/window_initialize.c \
-		graphics/texture_initialize.c \
-		graphics/wall_raycast.c \
-		graphics/sprite_raycast.c \
-		graphics/draw_raycast.c \
-		graphics/bitmap.c
+SRC =	main.c \
+		params_parse.c \
+		params_parse_two.c \
+		color_parse.c \
+		textures_parse.c \
+		map_parse.c \
+		position_control.c \
+		key_manage.c \
+		window_manage.c \
+		wall_raycast.c \
+		sprite_raycast.c \
+		textures_init.c \
+		draw.c \
+		bitmap.c \
+		utils.c
 SRCDIR = src/
 OBJ = $(SRC:.c=.o)
 LIBFTDIR = libft/

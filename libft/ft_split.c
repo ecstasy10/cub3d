@@ -38,7 +38,7 @@ static void		*destroy_strs(char **strs)
 	int i;
 
 	i = 0;
-	while (strs[i] != (void *)0)
+	while (strs[i] != '\0')
 		free(strs[i++]);
 	free(strs);
 	return (NULL);
