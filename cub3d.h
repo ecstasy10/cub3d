@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.h                                            :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/19 10:34:02 by tsierra-          #+#    #+#             */
-/*   Updated: 2021/01/22 12:10:32 by tsierra-         ###   ########.fr       */
+/*   Created: 2021/04/01 13:41:09 by dbalboa-          #+#    #+#             */
+/*   Updated: 2021/04/01 13:41:13 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,19 @@
 # define LEFT_KEY	123
 # define RIGHT_KEY	124
 
-typedef struct		s_mlx
+typedef struct s_mlx
 {
 	void			*ptr;
 }					t_mlx;
 
-typedef struct		s_win
+typedef struct s_win
 {
 	int				width;
 	int				height;
 	void			*ptr;
 }					t_win;
 
-typedef struct		s_img
+typedef struct s_img
 {
 	void			*ptr;
 	char			*buffer;
@@ -52,14 +52,14 @@ typedef struct		s_img
 	int				endian;
 }					t_img;
 
-typedef struct		s_color
+typedef struct s_color
 {
-	unsigned		r;
-	unsigned		g;
-	unsigned		b;
+	unsigned r;
+	unsigned g;
+	unsigned b;
 }					t_color;
 
-typedef struct		s_tex
+typedef struct s_tex
 {
 	char			*path;
 	int				x;
@@ -71,29 +71,29 @@ typedef struct		s_tex
 	int				height;
 }					t_tex;
 
-typedef	struct		s_dvec
+typedef struct s_dvec
 {
 	double			x;
 	double			y;
 }					t_dvec;
 
-typedef struct		s_ivec
+typedef struct s_ivec
 {
 	int				x;
 	int				y;
 }					t_ivec;
 
-typedef	struct		s_cam
+typedef struct s_cam
 {
 	double			x;
 }					t_cam;
 
-typedef struct		s_side
+typedef struct s_side
 {
 	t_dvec			dist;
 }					t_side;
 
-typedef struct		s_wall
+typedef struct s_wall
 {
 	double			dist;
 	int				hit;
@@ -101,7 +101,7 @@ typedef struct		s_wall
 	double			x;
 }					t_wall;
 
-typedef struct		s_ray
+typedef struct s_ray
 {
 	int				x;
 	t_dvec			dir;
@@ -112,7 +112,7 @@ typedef struct		s_ray
 	t_ivec			step;
 }					t_ray;
 
-typedef struct		s_sprite
+typedef struct s_sprite
 {
 	t_ivec			start;
 	t_ivec			end;
@@ -125,7 +125,7 @@ typedef struct		s_sprite
 	int				win;
 }					t_sprite;
 
-typedef struct		s_draw
+typedef struct s_draw
 {
 	int				height;
 	int				start;
@@ -136,7 +136,7 @@ typedef struct		s_draw
 	t_sprite		sprite;
 }					t_draw;
 
-typedef struct		s_bmp
+typedef struct s_bmp
 {
 	int				width;
 	int				height;
@@ -145,7 +145,7 @@ typedef struct		s_bmp
 	unsigned char	*infoheader;
 }					t_bmp;
 
-typedef struct		s_pos
+typedef struct s_pos
 {
 	double			x;
 	double			y;
@@ -153,7 +153,7 @@ typedef struct		s_pos
 	double			rspeed;
 }					t_pos;
 
-typedef struct		s_all
+typedef struct s_all
 {
 	t_mlx			mlx;
 	t_win			win;
@@ -181,7 +181,8 @@ typedef struct		s_all
 	int				color;
 }					t_all;
 
-int					color_rgb_to_hex(unsigned r, unsigned g, unsigned b);
+int					color_rgb_to_hex(unsigned int r,
+						 unsigned int g, unsigned int b);
 int					color_floor_parse(char **colors, t_all *all);
 int					color_ceilling_parse(char **colors, t_all *all);
 int					color_parse(char *params, t_all *all);

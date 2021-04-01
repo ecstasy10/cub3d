@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/25 10:54:41 by tsierra-          #+#    #+#             */
-/*   Updated: 2020/08/25 11:00:29 by tsierra-         ###   ########.fr       */
+/*   Created: 2020/08/25 10:54:41 by dbalboa-          #+#    #+#             */
+/*   Updated: 2020/08/25 11:00:29 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ int	ft_nbrlen(long int nbr)
 	if (nbr < 0)
 		nbr *= -1;
 	len = 1;
-	while ((nbr /= 10) >= 1)
+	while (nbr >= 1)
+	{
+		(nbr /= 10);
 		len++;
+	}
 	return (len);
 }

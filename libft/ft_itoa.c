@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/27 14:09:03 by tsierra-          #+#    #+#             */
-/*   Updated: 2019/11/27 15:04:20 by tsierra-         ###   ########.fr       */
+/*   Created: 2019/11/27 14:09:03 by dbalboa-          #+#    #+#             */
+/*   Updated: 2019/11/27 15:04:20 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		count_len(unsigned int nb)
+static char	count_len(unsigned int nb)
 {
 	unsigned int	size;
 
@@ -25,7 +25,7 @@ static char		count_len(unsigned int nb)
 	return (size + 1);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char			*str;
 	unsigned int	nb;
@@ -35,12 +35,12 @@ char			*ft_itoa(int n)
 	if (n < 0)
 		nb = (unsigned int)(n * -1);
 	else
-		nb = (unsigned int)n;
-	size = (unsigned int)count_len(nb);
-	if (!(str = (char*)malloc(sizeof(char) * (size + 1 + (n < 0 ? 1 : 0)))))
-		return (NULL);
+		nb = (unsigned int) n;
+	size = (unsigned int) count_len(nb);
+	str = (char *) malloc(sizeof(char) * (size + 1 + n));
 	i = 0;
-	if (n < 0 && (str[i] = '-'))
+	str[i] = '-';
+	if (n < 0 && str[i])
 		size++;
 	i = size - 1;
 	while (nb >= 10)

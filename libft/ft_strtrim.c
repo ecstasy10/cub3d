@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/26 14:12:45 by tsierra-          #+#    #+#             */
-/*   Updated: 2019/11/27 14:07:59 by tsierra-         ###   ########.fr       */
+/*   Created: 2019/11/26 14:12:45 by dbalboa-          #+#    #+#             */
+/*   Updated: 2019/11/27 14:07:59 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (len != 0)
 	{
 		while (s1[start + len - 1]
-				&& ft_strchr(set, s1[start + len - 1]) != NULL)
+			&& ft_strchr(set, s1[start + len - 1]) != NULL)
 			len--;
 	}
-	if ((copys1 = (char*)malloc(sizeof(char) * (len + 1))) == NULL)
+	copys1 = (char *)malloc(sizeof(char) * (len + 1));
+	if (copys1 == NULL)
 		return (NULL);
 	copys1 = ft_strncpy(copys1, &s1[start], len);
 	copys1[len] = '\0';
