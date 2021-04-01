@@ -77,7 +77,7 @@ int	bitmap_save(t_all *all)
 	image_render(all);
 	pixel_data_write(fd, all);
 	mlx_destroy_image(all->mlx.ptr, all->img.ptr);
-	ft_putstr_fd("Bitmap image file created!\n", 1);
+	ft_putstr_fd(CREATED_BITMAP, 1);
 	close(fd);
 	program_exit(all);
 	return (1);

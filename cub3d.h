@@ -22,6 +22,32 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define ANSI_COLOR_YELLOW  "\x1b[33m"
+# define ANSI_COLOR_BLUE    "\x1b[34m"
+# define ANSI_COLOR_CYAN    "\x1b[36m"
+# define ANSI_COLOR_GREEN   "\x1b[32m"
+# define ANSI_COLOR_MAGENTA "\x1b[35m"
+# define ANSI_COLOR_RESET   "\x1b[0m"
+
+# define HEADER ANSI_COLOR_CYAN "\n############# 42-CUB3D by @dbalboa- ##############\n\n" ANSI_COLOR_RESET
+# define FOOTER ANSI_COLOR_CYAN "\n\n##################################################\n" ANSI_COLOR_RESET
+# define TITLE ANSI_COLOR_BLUE "There were some errors:\n" ANSI_COLOR_RESET
+
+# define E_ARGS ANSI_COLOR_YELLOW "Wrong arguments, try -> ./cub3d [map] [--save]" ANSI_COLOR_RESET
+# define E_FLAG ANSI_COLOR_YELLOW "Wrong flag, try -> ./cub3d [map] [--save]" ANSI_COLOR_RESET
+# define E_FILE ANSI_COLOR_YELLOW "Bad Map file format" ANSI_COLOR_RESET
+# define E_FILE_404 ANSI_COLOR_YELLOW "Description file not found" ANSI_COLOR_RESET
+# define E_FILE_INFO ANSI_COLOR_YELLOW "Wrong information in description file" ANSI_COLOR_RESET
+# define E_FILE_MAP_404 ANSI_COLOR_YELLOW "Map description not found" ANSI_COLOR_RESET
+# define E_RES ANSI_COLOR_YELLOW "Invalid resolution param" ANSI_COLOR_RESET
+# define E_TEX ANSI_COLOR_YELLOW "Invalid texture params" ANSI_COLOR_RESET
+# define E_COLOR ANSI_COLOR_YELLOW "Invalid color params" ANSI_COLOR_RESET
+# define E_MAP_DESC ANSI_COLOR_YELLOW "Invalid map description" ANSI_COLOR_RESET
+# define E_PLAYER_POS ANSI_COLOR_YELLOW "Wrong player position" ANSI_COLOR_RESET
+# define E_ERR ANSI_COLOR_YELLOW "Something failed successfully" ANSI_COLOR_RESET
+
+# define CREATED_BITMAP HEADER ANSI_COLOR_MAGENTA "Bitmap file created with name -> " ANSI_COLOR_GREEN " 'screenshot.bpm'" FOOTER
+
 # define ESC_KEY	53
 # define W_KEY		13
 # define A_KEY		0

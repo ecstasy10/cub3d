@@ -14,39 +14,40 @@
 
 void	error_put(int errno)
 {
+	ft_putstr_fd(HEADER, 1);
+	ft_putstr_fd(TITLE, 1);
 	if (errno == 1)
-		ft_putstr_fd("Error\nWrong arguments!\n", 1);
+		ft_putstr_fd(E_ARGS, 1);
 	else if (errno == 2)
-		ft_putstr_fd("Error\nInvalid syntax in second argument!\n", 1);
+		ft_putstr_fd(E_FLAG, 1);
 	else if (errno == 3)
-		ft_putstr_fd("Error\nInvalid file format!\n", 1);
+		ft_putstr_fd(E_FILE, 1);
 	else if (errno == 4)
-		ft_putstr_fd("Error\nDescription file not found!\n", 1);
+		ft_putstr_fd(E_FILE_404, 1);
 	else if (errno == 5)
-		ft_putstr_fd("Error\nWrong information in description file!\n", 1);
+		ft_putstr_fd(E_FILE_INFO, 1);
 	else if (errno == 6)
-		ft_putstr_fd("Error\nMap description not found!\n", 1);
+		ft_putstr_fd(E_FILE_MAP_404, 1);
 	else if (errno == 7)
-		ft_putstr_fd("Error\nInvalid resolution param!\n", 1);
+		ft_putstr_fd(E_RES, 1);
 	else if (errno == 8)
-		ft_putstr_fd("Error\nInvalid texture params!\n", 1);
+		ft_putstr_fd(E_TEX, 1);
 	else if (errno == 9)
-		ft_putstr_fd("Error\nInvalid color params!\n", 1);
+		ft_putstr_fd(E_COLOR, 1);
 	else if (errno == 10)
-		ft_putstr_fd("Error\nInvalid map description!\n", 1);
+		ft_putstr_fd(E_MAP_DESC, 1);
 	else if (errno == 11)
-		ft_putstr_fd("Error\nWrong player position!\n", 1);
+		ft_putstr_fd(E_PLAYER_POS, 1);
 	else if (errno == 12)
-		ft_putstr_fd("Error\nSomething failed successfully!\n", 1);
+		ft_putstr_fd(E_ERR, 1);
+	ft_putstr_fd(FOOTER, 1);
 	exit(EXIT_FAILURE);
 }
 
 int	program_exit(t_all *all)
 {
 	mlx_destroy_window(all->mlx.ptr, all->win.ptr);
-	system("leaks cub3D");
 	exit(EXIT_SUCCESS);
-	return (1);
 }
 
 int	main(int argc, char **argv)
