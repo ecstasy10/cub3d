@@ -6,13 +6,13 @@
 /*   By: tsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 13:22:54 by tsierra-          #+#    #+#             */
-/*   Updated: 2021/01/08 13:25:19 by tsierra-         ###   ########.fr       */
+/*   Updated: 2021/04/01 11:57:18 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int		north_texture_parse(char *param, t_all *all)
+int	north_texture_parse(char *param, t_all *all)
 {
 	static int	count;
 
@@ -26,7 +26,7 @@ int		north_texture_parse(char *param, t_all *all)
 	return (1);
 }
 
-int		south_texture_parse(char *param, t_all *all)
+int	south_texture_parse(char *param, t_all *all)
 {
 	static int	count;
 
@@ -40,7 +40,7 @@ int		south_texture_parse(char *param, t_all *all)
 	return (1);
 }
 
-int		east_texture_parse(char *param, t_all *all)
+int	east_texture_parse(char *param, t_all *all)
 {
 	static int	count;
 
@@ -54,7 +54,7 @@ int		east_texture_parse(char *param, t_all *all)
 	return (1);
 }
 
-int		west_texture_parse(char *param, t_all *all)
+int	west_texture_parse(char *param, t_all *all)
 {
 	static int	count;
 
@@ -68,7 +68,7 @@ int		west_texture_parse(char *param, t_all *all)
 	return (1);
 }
 
-int		sprite_texture_parse(char *param, t_all *all)
+int	sprite_texture_parse(char *param, t_all *all)
 {
 	static int	count;
 

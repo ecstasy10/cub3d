@@ -6,7 +6,7 @@
 /*   By: tsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 13:38:56 by tsierra-          #+#    #+#             */
-/*   Updated: 2021/01/08 13:48:14 by tsierra-         ###   ########.fr       */
+/*   Updated: 2021/04/01 12:12:04 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,13 @@ void	sprite_control(t_all *all, int row, int column)
 
 void	sprite_init(t_all *all, int count)
 {
-	if (!(all->sprite = (t_dvec*)malloc(count * sizeof(t_dvec))))
+	all->sprite = (t_dvec *)malloc(count * sizeof(t_dvec));
+	if (!all->sprite)
 		error_put(12);
-	if (!(all->sprite_order = (int*)malloc(count * sizeof(int))))
+	all->sprite_order = (int *)malloc(count * sizeof(int));
+	if (!all->sprite_order)
 		error_put(12);
-	if (!(all->sprite_dist = (double*)malloc(count * sizeof(double))))
+	all->sprite_dist = (double *)malloc(count * sizeof(double));
+	if (!all->sprite_dist)
 		error_put(12);
 }

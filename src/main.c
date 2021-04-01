@@ -41,7 +41,7 @@ void	error_put(int errno)
 	exit(EXIT_FAILURE);
 }
 
-int		program_exit(t_all *all)
+int	program_exit(t_all *all)
 {
 	mlx_destroy_window(all->mlx.ptr, all->win.ptr);
 	system("leaks cub3D");
@@ -49,7 +49,7 @@ int		program_exit(t_all *all)
 	return (1);
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_all	all;
 

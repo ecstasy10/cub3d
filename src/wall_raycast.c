@@ -6,7 +6,7 @@
 /*   By: tsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 14:08:11 by tsierra-          #+#    #+#             */
-/*   Updated: 2021/01/08 14:14:21 by tsierra-         ###   ########.fr       */
+/*   Updated: 2021/04/01 11:52:33 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ static void	vertical_calculate(t_all *all)
 static void	wall_ray_distance_calculate(t_all *all)
 {
 	if (all->ray.wall.side == 0)
-		all->ray.wall.dist = (all->maze.x - all->pos.x +
-				(1 - all->ray.step.x) / 2) / all->ray.dir.x;
+		all->ray.wall.dist = (all->maze.x - all->pos.x + (
+					1 - all->ray.step.x) / 2) / all->ray.dir.x;
 	else
-		all->ray.wall.dist = (all->maze.y - all->pos.y +
-				(1 - all->ray.step.y) / 2) / all->ray.dir.y;
+		all->ray.wall.dist = (all->maze.y - all->pos.y + (
+					1 - all->ray.step.y) / 2) / all->ray.dir.y;
 }
 
 static void	wall_ray_hit_calculate(t_all *all)
@@ -65,8 +65,8 @@ static void	wall_ray_step_and_initial_side_calculate(t_all *all)
 	else
 	{
 		all->ray.step.x = 1;
-		all->ray.side.dist.x = (all->maze.x + 1.0 - all->pos.x) *
-								all->ray.delta.x;
+		all->ray.side.dist.x = (
+				all->maze.x + 1.0 - all->pos.x) * all->ray.delta.x;
 	}
 	if (all->ray.dir.y < 0)
 	{
@@ -76,12 +76,12 @@ static void	wall_ray_step_and_initial_side_calculate(t_all *all)
 	else
 	{
 		all->ray.step.y = 1;
-		all->ray.side.dist.y = (all->maze.y + 1.0 - all->pos.y) *
-								all->ray.delta.y;
+		all->ray.side.dist.y = (
+				all->maze.y + 1.0 - all->pos.y) * all->ray.delta.y;
 	}
 }
 
-void		wall_raycast(t_all *all)
+void	wall_raycast(t_all *all)
 {
 	int	tex;
 

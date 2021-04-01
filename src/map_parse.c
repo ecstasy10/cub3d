@@ -12,16 +12,14 @@
 
 #include "../cub3d.h"
 
-int		is_surrounded(t_all *all, int x, int y)
+int	is_surrounded(t_all *all, int x, int y)
 {
-	if (all->map[x - 1][y - 1] == ' ' || all->map[x - 1][y - 1] == '\0' ||
-			all->map[x - 1][y] == ' ' || all->map[x - 1][y] == '\0' ||
-			all->map[x - 1][y + 1] == ' ' || all->map[x - 1][y + 1] == '\0' ||
-			all->map[x][y - 1] == ' ' || all->map[x][y - 1] == '\0' ||
-			all->map[x][y + 1] == ' ' || all->map[x][y + 1] == '\0' ||
-			all->map[x + 1][y - 1] == ' ' || all->map[x + 1][y - 1] == '\0' ||
-			all->map[x + 1][y] == ' ' || all->map[x + 1][y] == '\0' ||
-			all->map[x + 1][y + 1] == ' ' || all->map[x + 1][y + 1] == '\0')
+	if (all->map[x - 1][y - 1] == ' ' || all->map[x - 1][y - 1] == '\0'
+		|| all->map[x - 1][y] == ' ' || all->map[x - 1][y] == '\0'
+		|| all->map[x - 1][y + 1] == ' ' || all->map[x - 1][y + 1] == '\0'
+		|| all->map[x][y - 1] == ' ' || all->map[x][y - 1] == '\0'
+		|| all->map[x][y + 1] == ' ' || all->map[x][y + 1] == '\0'
+		|| all->map[x + 1][y + 1] == ' ' || all->map[x + 1][y + 1] == '\0')
 		error_put(10);
 	return (1);
 }
@@ -42,8 +40,8 @@ void	is_valid_map(t_all *all)
 		{
 			if (all->map[i][j] != ' ' && all->map[i][j] != '1')
 				is_surrounded(all, i, j);
-			if (all->map[i][j] == 'N' || all->map[i][j] == 'S' ||
-					all->map[i][j] == 'W' || all->map[i][j] == 'E')
+			if (all->map[i][j] == 'N' || all->map[i][j] == 'S'
+				|| all->map[i][j] == 'W' || all->map[i][j] == 'E')
 				player_control(all, i, j);
 			if (all->map[i][j] == '2')
 				sprite_control(all, i, j);
@@ -55,7 +53,7 @@ void	is_valid_map(t_all *all)
 		error_put(11);
 }
 
-int		map_create(char *line, t_all *all)
+int	map_create(char *line, t_all *all)
 {
 	int		i;
 	char	*tmp;
@@ -73,7 +71,7 @@ int		map_create(char *line, t_all *all)
 	return (1);
 }
 
-int		map_parse(char *line, t_all *all)
+int	map_parse(char *line, t_all *all)
 {
 	if ((line[0] == '\0' || ft_only_spaces_line(line)) && !all->is_map)
 		return (1);
@@ -98,18 +96,19 @@ int		map_parse(char *line, t_all *all)
 	return (1);
 }
 
-int		map_init(t_all *all, char *path)
+int	map_init(t_all *all, char *path)
 {
 	int		fd;
 	int		i;
 	char	*line;
 
-	if (!(all->map = (char**)malloc(all->map_rows * sizeof(char*))))
+	all->map = (char **)malloc(all->map_rows * sizeof(char *));
+	if (!all->map)
 		return (0);
 	i = 0;
 	while (i < all->map_rows)
 	{
-		all->map[i] = (char*)malloc(all->map_columns * sizeof(char));
+		all->map[i] = (char *)malloc(all->map_columns * sizeof(char));
 		i++;
 	}
 	all->control = 0;

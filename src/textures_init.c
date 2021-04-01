@@ -6,13 +6,13 @@
 /*   By: tsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 14:16:24 by tsierra-          #+#    #+#             */
-/*   Updated: 2021/01/08 14:20:34 by tsierra-         ###   ########.fr       */
+/*   Updated: 2021/04/01 12:03:15 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int		texture_sort(t_all *all)
+int	texture_sort(t_all *all)
 {
 	int	tex;
 
@@ -47,8 +47,8 @@ void	texture_calculate(t_all *all, int i)
 	if (all->ray.wall.side == 1 && all->ray.dir.y < 0)
 		all->tex[i].x = all->tex[i].width - all->tex[i].x - 1;
 	all->tex[i].step = 1.0 * all->tex[i].height / all->draw.height;
-	all->tex[i].pos = (all->draw.start - all->win.height / 2 +
-						all->draw.height / 2) * all->tex[i].step;
+	all->tex[i].pos = (all->draw.start - all->win.height / 2
+			+ all->draw.height / 2) * all->tex[i].step;
 }
 
 void	texture_init(t_all *all)
@@ -58,13 +58,15 @@ void	texture_init(t_all *all)
 	i = 0;
 	while (i < 5)
 	{
-		if (!(all->tex[i].img = mlx_xpm_file_to_image(all->mlx.ptr,
-						all->tex[i].path, &all->tex[i].width,
-						&all->tex[i].height)))
+		all->tex[i].img = mlx_xpm_file_to_image(all->mlx.ptr,
+				all->tex[i].path, &all->tex[i].width,
+				&all->tex[i].height);
+		if (!all->tex[i].img)
 			error_put(12);
-		if (!(all->tex[i].img->buff = (int*)mlx_get_data_addr(all->tex[i].img,
-					&all->tex[i].img->bits_per_pixel,
-					&all->tex[i].img->size_line, &all->tex[i].img->endian)))
+		all->tex[i].img->buff = (int *)mlx_get_data_addr(all->tex[i].img,
+				&all->tex[i].img->bits_per_pixel,
+				&all->tex[i].img->size_line, &all->tex[i].img->endian);
+		if (!all->tex[i].img->buff)
 			error_put(12);
 		i++;
 	}

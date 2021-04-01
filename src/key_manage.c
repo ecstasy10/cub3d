@@ -15,10 +15,10 @@
 void	player_move(t_all *all, double x, double y)
 {
 	if (all->map[(int)(all->pos.x + x * all->pos.mspeed)][(int)all->pos.y]
-			!= '1')
+		!= '1')
 		all->pos.x += x * all->pos.mspeed;
 	if (all->map[(int)all->pos.x][(int)(all->pos.y + y * all->pos.mspeed)]
-			!= '1')
+		!= '1')
 		all->pos.y += y * all->pos.mspeed;
 	display(all);
 }
@@ -30,18 +30,18 @@ void	player_rotate(t_all *all, double speed)
 
 	olddir_x = all->dir.x;
 	all->dir.x = all->dir.x * cos(speed)
-					- all->dir.y * sin(speed);
+		- all->dir.y * sin(speed);
 	all->dir.y = olddir_x * sin(speed)
-					+ all->dir.y * cos(speed);
+		+ all->dir.y * cos(speed);
 	oldplane_x = all->plane.x;
 	all->plane.x = all->plane.x * cos(speed)
-					- all->plane.y * sin(speed);
+		- all->plane.y * sin(speed);
 	all->plane.y = oldplane_x * sin(speed)
-					+ all->plane.y * cos(speed);
+		+ all->plane.y * cos(speed);
 	display(all);
 }
 
-int		key_core(t_all *all)
+int	key_core(t_all *all)
 {
 	if (all->keyboard[W_KEY])
 		player_move(all, all->dir.x, all->dir.y);
@@ -60,14 +60,14 @@ int		key_core(t_all *all)
 	return (0);
 }
 
-int		key_release(int keycode, t_all *all)
+int	key_release(int keycode, t_all *all)
 {
 	if (keycode < 125)
 		all->keyboard[keycode] = 0;
 	return (0);
 }
 
-int		key_press(int keycode, t_all *all)
+int	key_press(int keycode, t_all *all)
 {
 	if (keycode < 125)
 		all->keyboard[keycode] = 1;
