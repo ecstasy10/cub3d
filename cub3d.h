@@ -36,7 +36,7 @@
 # define E_ARGS ANSI_COLOR_YELLOW "Wrong arguments, try -> ./cub3d [map] [--save]" ANSI_COLOR_RESET
 # define E_FLAG ANSI_COLOR_YELLOW "Wrong flag, try -> ./cub3d [map] [--save]" ANSI_COLOR_RESET
 # define E_FILE ANSI_COLOR_YELLOW "Bad Map file format" ANSI_COLOR_RESET
-# define E_FILE_404 ANSI_COLOR_YELLOW "Description file not found" ANSI_COLOR_RESET
+# define E_FILE_404 ANSI_COLOR_YELLOW "File not found" ANSI_COLOR_RESET
 # define E_FILE_INFO ANSI_COLOR_YELLOW "Wrong information in description file" ANSI_COLOR_RESET
 # define E_FILE_MAP_404 ANSI_COLOR_YELLOW "Map description not found" ANSI_COLOR_RESET
 # define E_RES ANSI_COLOR_YELLOW "Invalid resolution param" ANSI_COLOR_RESET

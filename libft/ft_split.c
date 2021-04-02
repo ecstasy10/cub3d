@@ -38,7 +38,7 @@ static void	*destroy_strs(char **strs)
 	int	i;
 
 	i = 0;
-	while (strs[i] != '\0')
+	while (strs[i] != (void *)0)
 		free(strs[i++]);
 	free(strs);
 	return (NULL);
@@ -46,29 +46,29 @@ static void	*destroy_strs(char **strs)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**strs;
-	size_t	tab_counter;
-	size_t	i;
-	size_t	j;
+    char	**strs;
+    size_t	tab_counter;
+    size_t	i;
+    size_t	j;
 
-	if (!s)
-		return (NULL);
-	tab_counter = count_segment(s, c);
-	strs = (char **)malloc(sizeof(char *) * (tab_counter + 1));
-	tab_counter = 0;
-	j = -1;
-	while (s[++j] && strs != NULL)
-	{
-		if (s[j] == c)
-			continue ;
-		i = 0;
-		while (s[j + i] && s[j + i] != c)
-			i++;
-		strs[tab_counter++] = ft_strndup(&s[j], i);
-		if (strs[tab_counter] == NULL)
-			return (destroy_strs(strs));
-		j = j + i - 1;
-	}
-	strs[tab_counter] = NULL;
-	return (strs);
+    if (!s)
+        return (NULL);
+    tab_counter = count_segment(s, c);
+    if ((strs = (char**)malloc(sizeof(char*) * (tab_counter + 1))) == NULL)
+        return (NULL);
+    tab_counter = 0;
+    j = -1;
+    while (s[++j])
+    {
+        if (s[j] == c)
+            continue ;
+        i = 0;
+        while (s[j + i] && s[j + i] != c)
+            i++;
+        if ((strs[tab_counter++] = ft_strndup(&s[j], i)) == NULL)
+            return (destroy_strs(strs));
+        j = j + i - 1;
+    }
+    strs[tab_counter] = NULL;
+    return (strs);
 }
