@@ -14,8 +14,6 @@
 
 void	error_put(int errno)
 {
-	ft_putstr_fd(HEADER, 1);
-	ft_putstr_fd(TITLE, 1);
 	if (errno == 1)
 		ft_putstr_fd(E_ARGS, 1);
 	else if (errno == 2)
@@ -40,7 +38,6 @@ void	error_put(int errno)
 		ft_putstr_fd(E_PLAYER_POS, 1);
 	else if (errno == 12)
 		ft_putstr_fd(E_ERR, 1);
-	ft_putstr_fd(FOOTER, 1);
 	exit(EXIT_FAILURE);
 }
 

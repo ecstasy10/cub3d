@@ -33,18 +33,18 @@
 # define FOOTER ANSI_COLOR_CYAN "\n\n##################################################\n" ANSI_COLOR_RESET
 # define TITLE ANSI_COLOR_BLUE "There were some errors:\n" ANSI_COLOR_RESET
 
-# define E_ARGS ANSI_COLOR_YELLOW "Wrong arguments, try -> ./cub3d [map] [--save]" ANSI_COLOR_RESET
-# define E_FLAG ANSI_COLOR_YELLOW "Wrong flag, try -> ./cub3d [map] [--save]" ANSI_COLOR_RESET
-# define E_FILE ANSI_COLOR_YELLOW "Bad Map file format" ANSI_COLOR_RESET
-# define E_FILE_404 ANSI_COLOR_YELLOW "File not found" ANSI_COLOR_RESET
-# define E_FILE_INFO ANSI_COLOR_YELLOW "Wrong information in description file" ANSI_COLOR_RESET
-# define E_FILE_MAP_404 ANSI_COLOR_YELLOW "Map description not found" ANSI_COLOR_RESET
-# define E_RES ANSI_COLOR_YELLOW "Invalid resolution param" ANSI_COLOR_RESET
-# define E_TEX ANSI_COLOR_YELLOW "Invalid texture params" ANSI_COLOR_RESET
-# define E_COLOR ANSI_COLOR_YELLOW "Invalid color params" ANSI_COLOR_RESET
-# define E_MAP_DESC ANSI_COLOR_YELLOW "Invalid map description" ANSI_COLOR_RESET
-# define E_PLAYER_POS ANSI_COLOR_YELLOW "Wrong player position" ANSI_COLOR_RESET
-# define E_ERR ANSI_COLOR_YELLOW "Something failed successfully" ANSI_COLOR_RESET
+# define E_ARGS HEADER TITLE ANSI_COLOR_YELLOW "Wrong arguments, try -> ./cub3d [map] [--save]" FOOTER ANSI_COLOR_RESET
+# define E_FLAG HEADER TITLE ANSI_COLOR_YELLOW "Wrong flag, try -> ./cub3d [map] [--save]" FOOTER ANSI_COLOR_RESET
+# define E_FILE HEADER TITLE ANSI_COLOR_YELLOW "Bad Map file format" FOOTER ANSI_COLOR_RESET
+# define E_FILE_404 HEADER TITLE ANSI_COLOR_YELLOW "File not found" FOOTER ANSI_COLOR_RESET
+# define E_FILE_INFO HEADER TITLE ANSI_COLOR_YELLOW "Wrong information in description file" FOOTER ANSI_COLOR_RESET
+# define E_FILE_MAP_404 HEADER TITLE ANSI_COLOR_YELLOW "Map description not found" FOOTER ANSI_COLOR_RESET
+# define E_RES HEADER TITLE ANSI_COLOR_YELLOW "Invalid resolution param" FOOTER ANSI_COLOR_RESET
+# define E_TEX HEADER TITLE ANSI_COLOR_YELLOW "Invalid texture params" FOOTER ANSI_COLOR_RESET
+# define E_COLOR HEADER TITLE ANSI_COLOR_YELLOW "Invalid color params" FOOTER ANSI_COLOR_RESET
+# define E_MAP_DESC HEADER TITLE ANSI_COLOR_YELLOW "Invalid map description" FOOTER ANSI_COLOR_RESET
+# define E_PLAYER_POS HEADER TITLE ANSI_COLOR_YELLOW "Wrong player position" FOOTER ANSI_COLOR_RESET
+# define E_ERR HEADER TITLE ANSI_COLOR_YELLOW "Something failed successfully" FOOTER ANSI_COLOR_RESET
 
 # define CREATED_BITMAP HEADER ANSI_COLOR_MAGENTA "Bitmap file created with name -> " ANSI_COLOR_GREEN " 'screenshot.bpm'" FOOTER
 
